@@ -59,7 +59,7 @@ public class HistoryFragment extends Fragment {
         lsExpert.add(new Expert("Name 1","Mail 1"));
         List<Request> lsRequest = new ArrayList<>();
         Skill skill = new Skill(2, "Skill 2");
-        lsRequest.add(new Request(client, skill,  "Description 1", "Subject 1"));
+//        lsRequest.add(new Request(client, skill,  "Description 1", "Subject 1"));
 
         historyAdapter = new HistoryAdapter(lsRequest);
         layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
@@ -111,8 +111,8 @@ public class HistoryFragment extends Fragment {
                                 //startActivity(new Intent(context, MainActivity.class));
                                 //finish();
 
-                                lsRequest =  Request.from(response.getJSONArray("requests"));
-                                listHistory(lsRequest);
+//                                lsRequest =  Request.from(response.getJSONArray("requests"));
+//                                listHistory(lsRequest);
 
                             }else{
                                 Toast toast = Toast.makeText(getContext(), "Incorrecto", Toast.LENGTH_LONG);

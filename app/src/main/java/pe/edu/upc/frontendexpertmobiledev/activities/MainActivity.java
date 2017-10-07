@@ -68,16 +68,13 @@ public class MainActivity extends AppCompatActivity {
         Fragment frag = null;
         // init corresponding fragment
         switch (item.getItemId()) {
-            case R.id.option_request:
+            case R.id.option_price:
+                frag = new RequestFragment();
+                break;
+            case R.id.option_pending_jobs:
                 frag = new RequestFragment();
                 break;
             case R.id.option_history:
-                frag = new HistoryFragment();
-                break;
-            case R.id.option_favourites:
-                frag = new HistoryFragment();
-                break;
-            case R.id.option_settings:
                 frag = new HistoryFragment();
                 break;
         }
