@@ -1,5 +1,7 @@
 package pe.edu.upc.frontendexpertmobiledev.models;
 
+import android.os.Bundle;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -120,6 +122,16 @@ public class Request implements Serializable {
         }
 
         return requests;
+    }
+
+    public Bundle toBundle() {
+        Bundle bundle = new Bundle();
+        bundle.putInt("name", id);
+        //bundle.putString("service", skill);
+        bundle.putString("description", description);
+        bundle.putString("subject", subject);
+
+        return bundle;
     }
 
 }
