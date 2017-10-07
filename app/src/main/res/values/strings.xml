@@ -72,4 +72,8 @@
         <item>Mecánico</item>
     </string-array>
     <!-- END NEW REQUEST -->
+
+
+    <!-- EXPERT COTIZATION -->
+    <string name="name_Acept">Aceptar</string>
 </resources>
