@@ -39,7 +39,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
         holder.imgThumbnail.setImageResource(R.mipmap.ic_launcher);
         holder.txtDescription.setText(request.getDescription());
-        //holder.txtTitle.setText(request.getSubject());
+//        holder.txtTitle.setText(request.getSubject());
 
         holder.btnMore.setOnClickListener(new View.OnClickListener(){
             @Override

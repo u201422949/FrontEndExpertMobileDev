@@ -33,7 +33,7 @@ public class RequestAdapter extends RecyclerView.Adapter<RequestAdapter.ViewHold
     public void onBindViewHolder(RequestAdapter.ViewHolder holder, int position) {
         holder.imgThumbnail.setImageResource(R.mipmap.ic_launcher);
         holder.txtDescription.setText(requestList.get(position).getDescription());
-        //holder.txtTitle.setText(requestList.get(position).getSubject());
+//        holder.txtTitle.setText(requestList.get(position).getSubject());
     }
 
     @Override

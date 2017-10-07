@@ -3,23 +3,20 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/option_request"
+            android:id="@+id/option_price"
             android:icon="@drawable/ic_build_black_24dp"
-            android:title="@string/title_menu_request" />
+            android:title="@string/title_menu_price" />
+
+
+        <item
+            android:id="@+id/option_pending_jobs"
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:title="@string/title_menu_pending_jobs" />
 
         <item
             android:id="@+id/option_history"
             android:icon="@drawable/ic_assignment_black_24dp"
             android:title="@string/title_menu_history" />
-
-        <item
-            android:id="@+id/option_favourites"
-            android:icon="@drawable/ic_favorite_black_24dp"
-            android:title="@string/title_menu_favourites" />
-        <item
-            android:id="@+id/option_settings"
-            android:icon="@drawable/ic_settings_black_24dp"
-            android:title="@string/title_menu_settings" />
 
     </group>
 

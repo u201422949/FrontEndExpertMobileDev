@@ -12,6 +12,7 @@ import android.view.MenuItem;
 
 import pe.edu.upc.frontendexpertmobiledev.R;
 import pe.edu.upc.frontendexpertmobiledev.fragments.HistoryFragment;
+import pe.edu.upc.frontendexpertmobiledev.fragments.PendingJobsFragment;
 import pe.edu.upc.frontendexpertmobiledev.fragments.RequestFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -68,16 +69,13 @@ public class MainActivity extends AppCompatActivity {
         Fragment frag = null;
         // init corresponding fragment
         switch (item.getItemId()) {
-            case R.id.option_request:
+            case R.id.option_price:
                 frag = new RequestFragment();
                 break;
+            case R.id.option_pending_jobs:
+                frag = new PendingJobsFragment();
+                break;
             case R.id.option_history:
-                frag = new HistoryFragment();
-                break;
-            case R.id.option_favourites:
-                frag = new HistoryFragment();
-                break;
-            case R.id.option_settings:
                 frag = new HistoryFragment();
                 break;
         }

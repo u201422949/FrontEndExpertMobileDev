@@ -1,10 +1,9 @@
 <resources>
     <string name="app_name">Home Assistant Experto</string>
     <!-- INIT MENU -->
-    <string name="title_menu_request">Solicitud</string>
-    <string name="title_menu_settings">Configuración</string>
+    <string name="title_menu_price">Cotización</string>
+    <string name="title_menu_pending_jobs">Servicios</string>
     <string name="title_menu_history">Historial</string>
-    <string name="title_menu_favourites">Favoritos</string>
     <!-- END MENU -->
 
 
