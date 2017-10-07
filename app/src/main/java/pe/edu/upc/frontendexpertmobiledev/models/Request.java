@@ -1,125 +1,99 @@
 package pe.edu.upc.frontendexpertmobiledev.models;
 
+import android.os.Bundle;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by paul.cabrera on 06/10/2017.
- */
-
-public class Request implements Serializable {
-    private int id;
-    private Client client;
-    private List<Expert> experts;
-    private Skill skill;
+public class Request {
+    private Integer id;
+    private User user;
+    private Specialty specialty;
+    private String topic;
     private String description;
-    private String subject;
+    private String state;
 
     public Request() {
     }
 
-    public Request(Skill skill, String description, String subject) {
-        this.skill = skill;
+    public Request(Integer id, User user, Specialty specialty, String topic, String description, String state) {
+        this.id = id;
+        this.user = user;
+        this.specialty = specialty;
+        this.topic = topic;
         this.description = description;
-        this.subject = subject;
+        this.state = state;
     }
 
-    public Request(Client client, Skill skill, String description, String subject) {
-        this.client = client;
-        this.skill = skill;
-        this.description = description;
-        this.subject = subject;
-    }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public Request setId(int id) {
+    public Request setId(Integer id) {
         this.id = id;
         return this;
     }
 
-    public List<Expert> getExperts() {
-        return experts;
+    public User getUser() {
+        return user;
     }
 
-    public Request setExperts(List<Expert> experts) {
-        this.experts = experts;
+    public Request setUser(User user) {
+        this.user = user;
         return this;
     }
 
-    public Client getClient() {
-        return client;
+    public Specialty getSpecialty() {
+        return specialty;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public Request setSpecialty(Specialty specialty) {
+        this.specialty = specialty;
+        return this;
     }
 
-    public Skill getSkill() {
-        return skill;
+    public String getTopic() {
+        return topic;
     }
 
-    public void setSkill(Skill skill) {
-        this.skill = skill;
+    public Request setTopic(String topic) {
+        this.topic = topic;
+        return this;
     }
 
     public String getDescription() {
         return description;
     }
 
-    public void setDescription(String description) {
+    public Request setDescription(String description) {
         this.description = description;
+        return this;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getState() {
+        return state;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public Request setState(String state) {
+        this.state = state;
+        return this;
     }
 
-    public static Request from(JSONObject jsonSource) {
-        Request request = new Request();
+    public Bundle toBundle(){
+        Bundle bundle = new Bundle();
 
-        try {
-            List<String> sortBysAvailable = new ArrayList<>();
-            JSONArray jsonSortBysAvailable = jsonSource.getJSONArray("sortBysAvailable");
-            for (int i = 0; i < jsonSortBysAvailable.length(); i++) {
-                sortBysAvailable.add(jsonSortBysAvailable.getString(i));
-            }
+        bundle.putInt("id",id);
+        bundle.putBundle("user", user.toBundle());
+        bundle.putBundle("specialty", specialty.toBundle());
+        bundle.putString("topic", topic);
+        bundle.putString("description", description);
+        bundle.putString("state", state);
 
-            //request.setId(jsonSource.getInt("id"))
-                    //.setClient(jsonSource.getString("description"))
-
-            return request;
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return request;
+        return bundle;
     }
-
-    public static List<Request> from(JSONArray jsonSources) {
-        List<Request> requests = new ArrayList<>();
-
-        try {
-            for (int i = 0; i < jsonSources.length(); i++) {
-                requests.add(Request.from(jsonSources.getJSONObject(i)));
-            }
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return requests;
-    }
-
 }
