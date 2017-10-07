@@ -56,6 +56,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText edtAddress;
     private EditText edtPassword;
     private EditText edtRepeatPassword;
+    private EditText edtDocument;
     private TextInputLayout tilName;
     private TextInputLayout tilMail;
     private TextInputLayout tilPhone;
@@ -82,6 +83,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         btnPhoto = (Button) findViewById(R.id.btnPhoto);
         imgProfile = (ImageView) findViewById(R.id.imgProfile);
         edtName = (EditText) findViewById(R.id.edtName);
+        edtDocument = (EditText) findViewById(R.id.edtDocument);
         edtMail = (EditText) findViewById(R.id.edtMail);
         edtPhone = (EditText) findViewById(R.id.edtPhone);
         edtAddress = (EditText) findViewById(R.id.edtAddress);
@@ -180,6 +182,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         String address = edtAddress.getText().toString();
         String password = edtPassword.getText().toString();
         String rePassword = edtRepeatPassword.getText().toString();
+        String documentNumber = edtDocument.getText().toString();
 
         tilName.setErrorEnabled(false);
         tilMail.setErrorEnabled(false);
@@ -222,7 +225,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     .setLatitude(userLocation.latitude)
                     .setLongitude(userLocation.longitude)
                     .setPassword(password)
-                    .setPhoto(profilePhoto);
+                    .setDocumentNumber(Integer.parseInt(documentNumber));
         }
 
         return client;
