@@ -7,9 +7,4 @@ import pe.edu.upc.frontendexpertmobiledev.R;
 
 public class DetailExpertActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_expert);
-    }
 }

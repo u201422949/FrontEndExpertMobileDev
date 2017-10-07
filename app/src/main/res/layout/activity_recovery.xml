@@ -1,33 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="pe.edu.upc.frontendexpertmobiledev.activities.RecoveryActivity">
+    android:background="@color/colorPrimary"
+    android:animateLayoutChanges="true">
 
-    <android.support.design.widget.AppBarLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:padding="@dimen/dimen_register_padding"
+        android:orientation="vertical"
+        android:animateLayoutChanges="true">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recovery_title"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="@dimen/login_logo_mg_bottom"
+            android:textSize="25dp"/>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilMail"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/login_txt_edt"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextAppearanceErrorLogin">
 
-    </android.support.design.widget.AppBarLayout>
+            <EditText
+                android:id="@+id/edtMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/recovery_edt_mail"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:padding="@dimen/login_edt_pd"
+                android:textColor="@color/login_txt_edt"
+                android:textColorHint="@color/login_hnt_edt"
+                android:backgroundTint="@color/colorAccent"/>
+        </android.support.design.widget.TextInputLayout>
 
-    <include layout="@layout/content_recovery" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
-
-</android.support.design.widget.CoordinatorLayout>
+        <Button
+            android:id="@+id/btnSend"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/login_btn_pd"
+            android:text="@string/recovery_btn_save"
+            android:background="@color/colorAccent"
+            android:textColor="@android:color/white"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+</ScrollView>
