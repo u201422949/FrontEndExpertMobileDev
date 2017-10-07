@@ -1,6 +1,11 @@
 package pe.edu.upc.frontendexpertmobiledev.models;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -14,6 +19,22 @@ public class Request implements Serializable {
     private Skill skill;
     private String description;
     private String subject;
+
+    public Request() {
+    }
+
+    public Request(Skill skill, String description, String subject) {
+        this.skill = skill;
+        this.description = description;
+        this.subject = subject;
+    }
+
+    public Request(Client client, Skill skill, String description, String subject) {
+        this.client = client;
+        this.skill = skill;
+        this.description = description;
+        this.subject = subject;
+    }
 
     public int getId() {
         return id;
@@ -65,20 +86,40 @@ public class Request implements Serializable {
         this.subject = subject;
     }
 
-    public Request(Skill skill, String description, String subject) {
-        this.skill = skill;
-        this.description = description;
-        this.subject = subject;
+    public static Request from(JSONObject jsonSource) {
+        Request request = new Request();
+
+        try {
+            List<String> sortBysAvailable = new ArrayList<>();
+            JSONArray jsonSortBysAvailable = jsonSource.getJSONArray("sortBysAvailable");
+            for (int i = 0; i < jsonSortBysAvailable.length(); i++) {
+                sortBysAvailable.add(jsonSortBysAvailable.getString(i));
+            }
+
+            //request.setId(jsonSource.getInt("id"))
+                    //.setClient(jsonSource.getString("description"))
+
+            return request;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return request;
     }
 
-    public Request(Client client, Skill skill, String description, String subject) {
-        this.client = client;
-        this.skill = skill;
-        this.description = description;
-        this.subject = subject;
-    }
+    public static List<Request> from(JSONArray jsonSources) {
+        List<Request> requests = new ArrayList<>();
 
-    public Request() {
+        try {
+            for (int i = 0; i < jsonSources.length(); i++) {
+                requests.add(Request.from(jsonSources.getJSONObject(i)));
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return requests;
     }
 
 }

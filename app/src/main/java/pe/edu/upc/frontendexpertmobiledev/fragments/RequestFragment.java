@@ -20,7 +20,6 @@ import pe.edu.upc.frontendexpertmobiledev.activities.NewRequestActivity;
 import pe.edu.upc.frontendexpertmobiledev.adapters.RequestAdapter;
 import pe.edu.upc.frontendexpertmobiledev.models.Request;
 
-import static java.security.AccessController.getContext;
 import pe.edu.upc.frontendexpertmobiledev.R;
 import static pe.edu.upc.frontendexpertmobiledev.Constants.EXTRA_REQUEST;
 
