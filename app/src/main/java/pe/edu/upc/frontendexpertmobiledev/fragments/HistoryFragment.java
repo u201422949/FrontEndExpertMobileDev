@@ -26,7 +26,10 @@ import java.util.List;
 import pe.edu.upc.frontendexpertmobiledev.R;
 import pe.edu.upc.frontendexpertmobiledev.activities.MainActivity;
 import pe.edu.upc.frontendexpertmobiledev.adapters.HistoryAdapter;
+import pe.edu.upc.frontendexpertmobiledev.models.Client;
+import pe.edu.upc.frontendexpertmobiledev.models.Expert;
 import pe.edu.upc.frontendexpertmobiledev.models.Request;
+import pe.edu.upc.frontendexpertmobiledev.models.Skill;
 import pe.edu.upc.frontendexpertmobiledev.network.AssistantApiService;
 
 /**
@@ -48,16 +51,23 @@ public class HistoryFragment extends Fragment {
         recyclerRequest = (RecyclerView) view.findViewById(R.id.recyclerRequest);
 
         //TODO: Set original list of requests
-        //List<Request> lsRequest = new ArrayList<>();
 
-        /*
+        Client client = new Client("1","Name 1","Address 1","Email 1","Phone 1",0,0,"123456","");
+        List<Expert> lsExpert = new ArrayList<>();
+        List<Skill> skills = new ArrayList<>();
+        skills.add(new Skill(1,"Skill 1"));
+        lsExpert.add(new Expert("Name 1","Mail 1"));
+        List<Request> lsRequest = new ArrayList<>();
+        Skill skill = new Skill(2, "Skill 2");
+        lsRequest.add(new Request(client, skill,  "Description 1", "Subject 1"));
+
         historyAdapter = new HistoryAdapter(lsRequest);
         layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
         recyclerRequest.setItemAnimator(new DefaultItemAnimator());
         recyclerRequest.setAdapter(historyAdapter);
         recyclerRequest.setLayoutManager(layoutManager);
-        */
-        callExpertHistoryService("");
+
+        //callExpertHistoryService("");
 
         return view;
     }
