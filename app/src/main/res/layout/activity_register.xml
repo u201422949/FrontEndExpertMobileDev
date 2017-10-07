@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:map="http://schemas.android.com/tools"
+    android:background="@color/colorPrimary"
+    android:animateLayoutChanges="true"
+    android:id="@+id/scrollRegister">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_register_padding"
+        android:orientation="vertical"
+        android:animateLayoutChanges="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_title"
+            android:textColor="@android:color/white"
+            android:layout_marginBottom="@dimen/login_logo_mg_bottom"
+            android:textSize="25sp"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/login_txt_edt"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextAppearanceErrorLogin">
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_edt_name"
+                android:maxLines="1"
+                android:inputType="textCapWords"
+                android:padding="@dimen/login_edt_pd"
+                android:textColor="@color/login_txt_edt"
+                android:textColorHint="@color/login_hnt_edt"
+                android:backgroundTint="@color/colorAccent"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/login_txt_edt"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextAppearanceErrorLogin">
+
+            <EditText
+                android:id="@+id/edtMail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_edt_mail"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:padding="@dimen/login_edt_pd"
+                android:textColor="@color/login_txt_edt"
+                android:textColorHint="@color/login_hnt_edt"
+                android:backgroundTint="@color/colorAccent"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/login_txt_edt"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextAppearanceErrorLogin">
+
+            <EditText
+                android:id="@+id/edtPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_edt_phone"
+                android:inputType="phone"
+                android:maxLines="1"
+                android:padding="@dimen/login_edt_pd"
+                android:textColor="@color/login_txt_edt"
+                android:textColorHint="@color/login_hnt_edt"
+                android:backgroundTint="@color/colorAccent"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/login_txt_edt"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextAppearanceErrorLogin">
+
+            <EditText
+                android:id="@+id/edtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_edt_address"
+                android:inputType="text"
+                android:maxLines="1"
+                android:padding="@dimen/login_edt_pd"
+                android:textColor="@color/login_txt_edt"
+                android:textColorHint="@color/login_hnt_edt"
+                android:backgroundTint="@color/colorAccent"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_txt_location"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+
+        <fragment
+            android:id="@+id/map"
+            android:name="pe.edu.upc.frontendexpertmobiledev.views.SupportMapInsideScrollFragment"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="5dp"
+            map:cameraZoom="16"
+            tools:context="pe.edu.upc.homeassistant.activities.RegisterActivity" />
+
+
+        <Button
+            android:id="@+id/btnPhoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_btn_photo"
+            android:textColor="@android:color/white"
+            android:background="@color/colorAccent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+
+        <ImageView
+            android:id="@+id/imgProfile"
+            android:layout_width="150dp"
+            android:layout_height="200dp"
+            android:visibility="gone"
+            android:layout_gravity="center_horizontal"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/login_txt_edt"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextAppearanceErrorLogin">
+
+            <EditText
+                android:id="@+id/edtPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/login_edt_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="@dimen/login_edt_pd"
+                android:textColor="@color/login_txt_edt"
+                android:textColorHint="@color/login_hnt_edt"
+                android:backgroundTint="@color/colorAccent"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilRepeatPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColorHint="@color/login_txt_edt"
+            app:errorEnabled="true"
+            app:errorTextAppearance="@style/TextAppearanceErrorLogin">
+
+            <EditText
+                android:id="@+id/edtRepeatPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/register_edt_repeat_password"
+                android:inputType="textPassword"
+                android:maxLines="1"
+                android:padding="@dimen/login_edt_pd"
+                android:textColor="@color/login_txt_edt"
+                android:textColorHint="@color/login_hnt_edt"
+                android:backgroundTint="@color/colorAccent"/>
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/login_btn_pd"
+            android:text="@string/register_btn_save"
+            android:background="@color/colorAccent"
+            android:textColor="@android:color/white"
+            android:layout_marginStart="5dp"
+            android:layout_gravity="center_horizontal"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,44 +1,27 @@
 package pe.edu.upc.frontendexpertmobiledev.models;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-
-import com.google.gson.Gson;
+import android.graphics.Bitmap;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-import pe.edu.upc.frontendexpertmobiledev.R;
-
-import pe.edu.upc.frontendexpertmobiledev.Constants;
-
-import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by paul.cabrera on 06/10/2017.
  */
+
 
 public class Client {
 
     private String id;
     private String name;
     private String address;
-    private int documentNumber;
     private String mail;
     private String phone;
     private double latitude;
     private double longitude;
     private String password;
     private String urlPhoto;
-    private byte[] photo;
-
-    public int getDocumentNumber() {
-        return documentNumber;
-    }
-
-    public Client setDocumentNumber(int documentNumber) {
-        this.documentNumber = documentNumber;
-        return this;
-    }
+    private Bitmap photo;
 
     public String getName() {
         return name;
@@ -112,11 +95,11 @@ public class Client {
         return this;
     }
 
-    public byte[] getPhoto() {
+    public Bitmap getPhoto() {
         return photo;
     }
 
-    public Client setPhoto(byte[] photo) {
+    public Client setPhoto(Bitmap photo) {
         this.photo = photo;
         return this;
     }
@@ -143,7 +126,6 @@ public class Client {
             client.setId(jsonObject.getString("clientId"))
                     .setName(jsonObject.getString("name"))
                     .setAddress(jsonObject.getString("address"))
-                    .setDocumentNumber(jsonObject.getInt("documentNumber"))
                     .setMail(jsonObject.getString("email"))
                     .setPhone(jsonObject.getString("phone"))
                     .setLatitude(jsonObject.getLong("latitude"))
@@ -163,14 +145,5 @@ public class Client {
     public Client setId(String id) {
         this.id = id;
         return this;
-
-    }
-
-    public static Client from(Context context){
-        SharedPreferences preferences = context.getSharedPreferences
-                (context.getString(R.string.app_name), MODE_PRIVATE);
-        Gson gson = new Gson();
-        String json = preferences.getString(Constants.SP_DATA_CLIENT, "");
-        return gson.fromJson(json, Client.class);
     }
 }
