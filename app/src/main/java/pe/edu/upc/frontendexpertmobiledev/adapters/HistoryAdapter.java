@@ -1,15 +1,19 @@
 package pe.edu.upc.frontendexpertmobiledev.adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
 
 import pe.edu.upc.frontendexpertmobiledev.R;
+import pe.edu.upc.frontendexpertmobiledev.activities.DetailHistoryActivity;
 import pe.edu.upc.frontendexpertmobiledev.models.Request;
 
 /**
@@ -31,9 +35,24 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(HistoryAdapter.ViewHolder holder, int position) {
+        final Request request = requestList.get(position);
+
         holder.imgThumbnail.setImageResource(R.mipmap.ic_launcher);
-        holder.txtDescription.setText(requestList.get(position).getDescription());
-        holder.txtTitle.setText(requestList.get(position).getSubject());
+        holder.txtDescription.setText(request.getDescription());
+        holder.txtTitle.setText(request.getSubject());
+
+        holder.btnMore.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                // TODO: Start Detail History Activity
+                Context context = view.getContext();
+                Intent intent = new Intent(context, DetailHistoryActivity.class);
+                intent.putExtras(request.toBundle());
+                context.startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
@@ -49,12 +68,14 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder{
         private ImageView imgThumbnail;
         private TextView txtTitle, txtDescription;
+        private Button btnMore;
 
         public ViewHolder(View itemView) {
             super(itemView);
             txtTitle = (TextView) itemView.findViewById(R.id.txtTitle);
             txtDescription = (TextView) itemView.findViewById(R.id.txtDescription);
             imgThumbnail = (ImageView) itemView.findViewById(R.id.imgThumbnail);
+            btnMore = (Button) itemView.findViewById(R.id.btnAceptar);
         }
     }
 }

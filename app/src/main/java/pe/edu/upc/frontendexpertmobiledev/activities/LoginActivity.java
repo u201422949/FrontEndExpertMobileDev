@@ -69,8 +69,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             String mail = edtUser.getText().toString();
             String password = edtPassword.getText().toString();
 
+            /*
             if(validateFields(mail, password))
                 callLoginService(mail, password);
+                */
+            startActivity(new Intent(context, MainActivity.class));
+            finish();
 
         }else if(view == txtRecovery){
             startActivity(new Intent(context, RecoveryActivity.class));
@@ -99,9 +103,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         //TODO: Validar la funcionalidad del servicio
         AndroidNetworking.post(AssistantApiService.LOGIN_CLIENT_URL)
-                .addBodyParameter("email", mail)
+                .addBodyParameter("usuario", mail)
                 .addBodyParameter("password", password)
-                .addBodyParameter("type", "1")
+                .addBodyParameter("tipo", "e")
                 .setPriority(Priority.MEDIUM)
                 .setTag(getString(R.string.app_name))
                 .build()
@@ -109,11 +113,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            if("error".equalsIgnoreCase(response.getString("status"))){
+                            /*
+                            if("false".equalsIgnoreCase(response.getString("error"))){
                                 Log.e(getString(R.string.app_name), response.getString("message"));
                                 return;
                             }
-                            Boolean status = response.getBoolean("status");
+                            */
+                            Boolean status = response.getBoolean("error");
 
                             if(status == true){
 

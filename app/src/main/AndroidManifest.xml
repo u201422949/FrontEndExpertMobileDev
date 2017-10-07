@@ -31,7 +31,8 @@
             android:label="@string/title_activity_main" />
         <activity android:name=".activities.NewRequestActivity" />
         <activity android:name=".activities.ExpertsActivity" />
-        <activity android:name=".activities.DetailExpertActivity"></activity>
+        <activity android:name=".activities.DetailExpertActivity" />
+        <activity android:name=".activities.DetailHistoryActivity"></activity>
     </application>
 
 </manifest>

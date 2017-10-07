@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Home Assistant Cliente</string>
+    <string name="app_name">Home Assistant Experto</string>
     <!-- INIT MENU -->
     <string name="title_menu_request">Solicitud</string>
     <string name="title_menu_settings">Configuración</string>
