@@ -56,13 +56,16 @@ public class NewRequestActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         if (view == btnSend){
             Skill skill = new Skill(spnRequestType.getSelectedItemPosition(), (String) spnRequestType.getSelectedItem());
-            Request request = new Request(skill, edtDescription.getText().toString(), edtSubject.getText().toString());
+            //Request request = new Request(skill, edtDescription.getText().toString(), edtSubject.getText().toString());
+
+            Request request = new Request(0, null, null, "", edtDescription.getText().toString(), "");
+
             /*Intent returnIntent = new Intent();
             returnIntent.putExtra(EXTRA_REQUEST, request);
             setResult(RESULT_OK, returnIntent);
             finish();*/
             Intent intent = new Intent(NewRequestActivity.this, ExpertsActivity.class);
-            intent.putExtra("",request);
+            //intent.putExtra("",request);
             startActivityForResult(intent, 2);
         }
     }
