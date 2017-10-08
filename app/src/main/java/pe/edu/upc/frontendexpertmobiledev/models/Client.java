@@ -1,27 +1,59 @@
 package pe.edu.upc.frontendexpertmobiledev.models;
 
-import android.graphics.Bitmap;
+import android.content.Context;
+import android.content.SharedPreferences;
+
+import com.google.gson.Gson;
+import com.google.gson.annotations.SerializedName;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.Serializable;
+
+import pe.edu.upc.frontendexpertmobiledev.Constants;
+import pe.edu.upc.frontendexpertmobiledev.R;
+
+import static android.content.Context.MODE_PRIVATE;
 
 /**
  * Created by paul.cabrera on 06/10/2017.
  */
 
-
-public class Client {
+public class Client implements Serializable {
 
     private String id;
+    @SerializedName("usuario")
     private String name;
     private String address;
+    private int documentNumber;
     private String mail;
     private String phone;
     private double latitude;
     private double longitude;
+    @SerializedName("password")
     private String password;
     private String urlPhoto;
-    private Bitmap photo;
+    @SerializedName("tipo")
+    private String tipo;
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public Client setTipo(String tipo) {
+        this.tipo = tipo;
+        return this;
+    }
+
+    public int getDocumentNumber() {
+        return documentNumber;
+    }
+
+    public Client setDocumentNumber(int documentNumber) {
+        this.documentNumber = documentNumber;
+        return this;
+    }
 
     public String getName() {
         return name;
@@ -95,17 +127,7 @@ public class Client {
         return this;
     }
 
-    public Bitmap getPhoto() {
-        return photo;
-    }
-
-    public Client setPhoto(Bitmap photo) {
-        this.photo = photo;
-        return this;
-    }
-
-    public Client(String id, String name, String address, String mail, String phone, double latitude, double longitude, String password, String urlPhoto) {
-        this.id = id;
+    public Client(String name, String address, String mail, String phone, double latitude, double longitude, String password, String urlPhoto) {
         this.name = name;
         this.address = address;
         this.mail = mail;
@@ -123,9 +145,10 @@ public class Client {
         Client client = null;
         try {
             client = new Client();
-            client.setId(jsonObject.getString("clientId"))
+            client.setName(jsonObject.getString("fname"))
                     .setName(jsonObject.getString("name"))
                     .setAddress(jsonObject.getString("address"))
+                    .setDocumentNumber(jsonObject.getInt("documentNumber"))
                     .setMail(jsonObject.getString("email"))
                     .setPhone(jsonObject.getString("phone"))
                     .setLatitude(jsonObject.getLong("latitude"))
@@ -145,5 +168,13 @@ public class Client {
     public Client setId(String id) {
         this.id = id;
         return this;
+    }
+
+    public static Client from(Context context){
+        SharedPreferences preferences = context.getSharedPreferences
+                (context.getString(R.string.app_name), MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = preferences.getString(Constants.SP_DATA_CLIENT, "");
+        return gson.fromJson(json, Client.class);
     }
 }
