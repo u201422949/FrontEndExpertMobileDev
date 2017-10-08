@@ -17,7 +17,7 @@ public class Request {
     private String description;
     private String state;
 
-    public Request() {
+    public Request(Skill skill, String s, String toString) {
     }
 
     public Request(Integer id, User user, Specialty specialty, String topic, String description, String state) {

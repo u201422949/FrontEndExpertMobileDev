@@ -6,7 +6,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <ImageView
             android:id="@+id/imgThumbnail"
             android:layout_width="match_parent"
@@ -16,7 +15,6 @@
             android:src="@drawable/ic_login_icon"
             android:scaleType="fitXY"
             android:contentDescription="@string/app_name"/>
-
         <TextView
             android:id="@+id/txtTitle"
             android:layout_width="match_parent"
@@ -28,7 +26,6 @@
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/album_title"
             android:text="Title"/>
-
         <TextView
             android:id="@+id/txtDescription"
             android:layout_width="match_parent"
@@ -61,7 +58,6 @@
             android:scaleType="centerCrop"
             android:src="@drawable/ic_profile"
             android:contentDescription="@string/app_name"/>
-
         <Button
             android:id="@+id/btnMore"
             android:layout_width="0dp"
@@ -72,8 +68,5 @@
             android:background="@color/colorAccent"
             android:textColor="@android:color/white"
             android:text="More"/>
-
     </RelativeLayout>
-
-
 </LinearLayout>

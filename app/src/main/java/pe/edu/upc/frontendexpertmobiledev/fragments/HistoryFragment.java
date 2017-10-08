@@ -37,6 +37,11 @@ public class HistoryFragment extends Fragment {
         //TODO: Set original list of requests
 
         List<Request> lsRequest = new ArrayList<>();
+<<<<<<< HEAD
+        Skill skill = new Skill(2, "Skill 2");
+//        lsRequest.add(new Request(client, skill,  "Description 1", "Subject 1"));
+=======
+>>>>>>> 550792be254a124d8970201925557835f088c802
 
         historyAdapter = new HistoryAdapter(lsRequest);
         layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
@@ -55,7 +60,61 @@ public class HistoryFragment extends Fragment {
         recyclerRequest.setLayoutManager(layoutManager);
     }
 
+<<<<<<< HEAD
+    private void callExpertHistoryService(String code){
 
+        //TODO: Validar la funcionalidad del servicio
+        AndroidNetworking.post(AssistantApiService.EXPERT_HISTORY_URL)
+                .addBodyParameter("code", code)
+                //.addBodyParameter("password", password)
+                //.addBodyParameter("type", "1")
+                .setPriority(Priority.MEDIUM)
+                .setTag(getString(R.string.app_name))
+                .build()
+                .getAsJSONObject(new JSONObjectRequestListener() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            if("error".equalsIgnoreCase(response.getString("status"))){
+                                Log.e(getString(R.string.app_name), response.getString("message"));
+                                return;
+                            }
+                            Boolean status = response.getBoolean("status");
+
+                            if(status == true){
+
+                                Toast toast = Toast.makeText(getContext(), "Ok", Toast.LENGTH_LONG);
+                                toast.show();
+
+                                //Client client = Client.from(response.getJSONArray("object").getJSONObject(0));
+                                //saveDataUser(client);
+
+                                //startActivity(new Intent(context, MainActivity.class));
+                                //finish();
+
+//                                lsRequest =  Request.from(response.getJSONArray("requests"));
+//                                listHistory(lsRequest);
+
+                            }else{
+                                Toast toast = Toast.makeText(getContext(), "Incorrecto", Toast.LENGTH_LONG);
+                                toast.show();
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onError(ANError anError) {
+                        Log.e(getString(R.string.app_name), anError.getLocalizedMessage());
+                    }
+                });
+    }
+=======
+
+>>>>>>> 550792be254a124d8970201925557835f088c802
 
 
 }
