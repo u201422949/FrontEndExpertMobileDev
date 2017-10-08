@@ -96,4 +96,46 @@ public class Request {
 
         return bundle;
     }
+
+    public static Request from(Bundle bundle, User user, Specialty specialty) {
+        Request request = new Request();
+
+        request.setId(bundle.getInt("id"))
+                .setUser(user)
+                .setSpecialty(specialty)
+                .setDescription(bundle.getString("description"))
+                .setTopic(bundle.getString("topic"))
+                .setState(bundle.getString("state"));
+
+        return request;
+    }
+
+    public static Request from(JSONObject jsonRequest, User user, Specialty specialty){
+        Request request = new Request();
+
+        try {
+            request.setId(jsonRequest.getInt("id"))
+                    .setUser(user)
+                    .setSpecialty(specialty)
+                    .setTopic(jsonRequest.getString("topic"))
+                    .setDescription(jsonRequest.getString("description"))
+                    .setState(jsonRequest.getString("state"));
+
+            return  request;
+        } catch (JSONException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static List<Request> from(JSONArray jsonRequests, User user, Specialty specialty){
+        List<Request> requests = new ArrayList<>();
+        for (int i = 0; i < jsonRequests.length(); i++)
+            try {
+                requests.add(Request.from(jsonRequests.getJSONObject(i), user, specialty));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return requests;
+    }
 }
