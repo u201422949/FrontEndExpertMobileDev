@@ -39,19 +39,19 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.ViewHold
 
         holder.imgThumbnail.setImageResource(R.mipmap.ic_launcher);
         holder.txtDescription.setText(request.getDescription());
-//        holder.txtTitle.setText(request.getSubject());
+        //holder.txtTitle.setText(request.getSubject());
 
+        /*
         holder.btnMore.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
-                // TODO: Start Detail History Activity
                 Context context = view.getContext();
                 Intent intent = new Intent(context, DetailHistoryActivity.class);
                 intent.putExtras(request.toBundle());
                 context.startActivity(intent);
             }
         });
-
+        */
 
     }
 

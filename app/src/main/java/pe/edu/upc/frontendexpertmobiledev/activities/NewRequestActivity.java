@@ -18,7 +18,7 @@ import pe.edu.upc.frontendexpertmobiledev.models.Request;
 import pe.edu.upc.frontendexpertmobiledev.models.Skill;
 
 public class NewRequestActivity extends AppCompatActivity implements View.OnClickListener {
-    private Toolbar toolbar;
+    //private Toolbar toolbar;
     private Spinner spnRequestType;
     private EditText edtSubject;
     private TextInputLayout tilSubject;
@@ -32,7 +32,7 @@ public class NewRequestActivity extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_request);
 
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        //toolbar = (Toolbar) findViewById(R.id.toolbar);
         spnRequestType = (Spinner) findViewById(R.id.spnRequestType);
         edtSubject = (EditText) findViewById(R.id.edtSubject);
         tilSubject = (TextInputLayout) findViewById(R.id.tilSubject);
@@ -40,7 +40,7 @@ public class NewRequestActivity extends AppCompatActivity implements View.OnClic
         tilDescription = (TextInputLayout) findViewById(R.id.tilDescription);
         btnSend = (Button) findViewById(R.id.btnSend);
 
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
         btnSend.setOnClickListener(this);
 
         adaptSpinner();

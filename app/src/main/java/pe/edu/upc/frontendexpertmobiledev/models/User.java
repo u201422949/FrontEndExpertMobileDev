@@ -2,6 +2,9 @@ package pe.edu.upc.frontendexpertmobiledev.models;
 
 import android.os.Bundle;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by jlosorio on 10/7/17.
  */
@@ -79,5 +82,19 @@ public class User {
         bundle.putString("name",name);
 
         return bundle;
+    }
+
+    public static User from(JSONObject jsonSource){
+        User user = new User();
+        try {
+            user.setId(jsonSource.getInt("id"))
+                    .setAccount(jsonSource.getString("account"))
+                    .setPassword(jsonSource.getString("password"))
+                    .setType(jsonSource.getString("type"))
+                    .setName(jsonSource.getString("name"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return user;
     }
 }

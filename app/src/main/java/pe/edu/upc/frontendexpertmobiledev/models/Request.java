@@ -29,7 +29,6 @@ public class Request {
         this.state = state;
     }
 
-
     public Integer getId() {
         return id;
     }
@@ -96,4 +95,23 @@ public class Request {
 
         return bundle;
     }
+
+    public static Request from(JSONObject jsonSource){
+        Request request = new Request();
+        try {
+            User user = User.from(jsonSource.getJSONObject("user"));
+            Specialty specialty = Specialty.from(jsonSource.getJSONObject("specialty"));
+
+            request.setId(jsonSource.getInt("id"))
+                    .setUser(user)
+                    .setSpecialty(specialty)
+                    .setTopic(jsonSource.getString("topic"))
+                    .setDescription(jsonSource.getString("description"))
+                    .setState(jsonSource.getString("state"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return request;
+    }
 }
+
