@@ -68,8 +68,6 @@ public class HistoryFragment extends Fragment {
         User user = new User(1, "account1", "123465", "c", "user1");
         Specialty specialt = new Specialty(1, "");
         lsRequest.add(new Request(1, user, specialt, "topic1", "desc1", "a"));
-=======
->>>>>>> 550792be254a124d8970201925557835f088c802
 
         historyAdapter = new HistoryAdapter(lsRequest);
         layoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
@@ -161,7 +159,7 @@ public class HistoryFragment extends Fragment {
         recyclerRequest.setLayoutManager(layoutManager);
     }
 
-<<<<<<< HEAD
+    /*
     private void callExpertHistoryService(String code){
 
         //TODO: Validar la funcionalidad del servicio
@@ -213,9 +211,8 @@ public class HistoryFragment extends Fragment {
                     }
                 });
     }
-=======
 
->>>>>>> 550792be254a124d8970201925557835f088c802
+*/
 
 
 }
